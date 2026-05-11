@@ -13,10 +13,10 @@ const revealElements = document.querySelectorAll('.reveal');
 
 const scrollReveal = () => {
     const triggerBottom = window.innerHeight * 0.85;
-    
+
     revealElements.forEach(el => {
         const elementTop = el.getBoundingClientRect().top;
-        
+
         if (elementTop < triggerBottom) {
             el.classList.add('active');
         }
@@ -28,22 +28,37 @@ window.addEventListener('load', scrollReveal);
 
 // Mobile Menu Toggle
 const menuToggle = document.getElementById('menuToggle');
-const navLinksContainer = document.querySelector('.nav-links');
+const sidebar = document.getElementById('sidebar');
+const sidebarClose = document.getElementById('sidebarClose');
+const mobileOverlay = document.getElementById('mobileOverlay');
 
 if (menuToggle) {
     menuToggle.addEventListener('click', () => {
-        navLinksContainer.classList.toggle('active');
-        const icon = menuToggle.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
+        sidebar.classList.add('active');
+        mobileOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
     });
+}
+
+const closeSidebar = () => {
+    sidebar.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+};
+
+if (sidebarClose) {
+    sidebarClose.addEventListener('click', closeSidebar);
+}
+
+if (mobileOverlay) {
+    mobileOverlay.addEventListener('click', closeSidebar);
 }
 
 // Smooth Scrolling for Nav Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
+
         // Close menu on mobile after click
         navLinksContainer.classList.remove('active');
         const icon = menuToggle?.querySelector('i');
@@ -69,15 +84,15 @@ if (form) {
         e.preventDefault();
         const btn = form.querySelector('button');
         const originalText = btn.innerText;
-        
+
         btn.innerText = 'Sending...';
         btn.disabled = true;
-        
+
         setTimeout(() => {
             btn.innerText = 'Inquiry Sent!';
             btn.style.background = 'var(--primary)';
             form.reset();
-            
+
             setTimeout(() => {
                 btn.innerText = originalText;
                 btn.style.background = '';

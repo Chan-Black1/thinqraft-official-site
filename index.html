@@ -24,20 +24,18 @@
 <body>
 
     <nav id="navbar">
-        <div class="container">
-            <a href="#" class="logo">
-
+        <div class="container nav-pill glass">
+            <a href="#home" class="logo">
                 <img src="assets/logo-final.png" alt="Thinkqraft Logo"
                     style="height: 35px; width: auto; mix-blend-mode: screen;"> THINKQRAFT
             </a>
-            <ul class="nav-links">
+            <ul class="desktop-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#clients">Clients</a></li>
                 <li><a href="#pipeline">Pipeline</a></li>
                 <li><a href="#careers">Careers</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li class="mobile-cta-item"><a href="#contact" class="btn-cta">Start a Project</a></li>
             </ul>
             <div class="nav-btns">
                 <a href="#contact" class="btn-cta">Start a Project</a>
@@ -47,6 +45,29 @@
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="#home" class="logo">
+                <img src="assets/logo-final.png" alt="Thinkqraft Logo"
+                    style="height: 32px; width: auto; mix-blend-mode: screen;"> THINKQRAFT
+            </a>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#clients">Clients</a></li>
+            <li><a href="#pipeline">Pipeline</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="sidebar-cta"><a href="#contact" class="btn-cta">Start a Project</a></li>
+        </ul>
+    </div>
 
     <section class="hero" id="home">
         <div class="hero-bg">
@@ -128,8 +149,34 @@
                     </div>
                 </div>
 
+                <!-- ManiMark -->
+                <div class="portfolio-card glass card-md reveal">
+                    <div class="img-placeholder"><i class="fas fa-shopping-bag"></i></div>
+                    <div class="portfolio-info">
+                        <span
+                            style="color: var(--primary); font-weight: 600; font-size: 0.8rem; text-transform: uppercase;">E-Commerce
+                            & Smart Shopping</span>
+                        <h3>ManiMark</h3>
+                        <p>An advanced e-commerce platform designed for seamless online shopping with smart product
+                            discovery and secure payments.</p>
+                    </div>
+                </div>
+
+                <!-- Vignesh Metals -->
+                <div class="portfolio-card glass card-lg reveal">
+                    <div class="img-placeholder"><i class="fas fa-industry"></i></div>
+                    <div class="portfolio-info">
+                        <span
+                            style="color: var(--secondary); font-weight: 600; font-size: 0.8rem; text-transform: uppercase;">Sales
+                            Management & Ordering</span>
+                        <h3>Vignesh Metals</h3>
+                        <p>A powerful sales-person management platform enabling product ordering, cart management, and
+                            real-time stock handling for metal distribution.</p>
+                    </div>
+                </div>
+
                 <!-- Enterprise ERP -->
-                <div class="portfolio-card glass card-sm reveal">
+                <!-- <div class="portfolio-card glass card-sm reveal">
                     <img src="assets/erp.png" alt="Thinkqraft ERP">
                     <div class="portfolio-info">
                         <span
@@ -139,7 +186,7 @@
                         <p>Internal financial control center bridging Project Delivery with real-time Gross/Net profit
                             tracking.</p>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- TrendBase & ViralForge -->
                 <div class="portfolio-card card-accent glass card-sm reveal">
@@ -151,6 +198,8 @@
                         <p>AI-driven market analysis and social growth automation tools designed for modern scale.</p>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </section>
