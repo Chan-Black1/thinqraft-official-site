@@ -57,20 +57,23 @@ if (mobileOverlay) {
 // Smooth Scrolling for Nav Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+
+        // If it's just "#" or empty, ignore
+        if (href === '#' || href === '') return;
+
         e.preventDefault();
 
         // Close menu on mobile after click
-        navLinksContainer.classList.remove('active');
-        const icon = menuToggle?.querySelector('i');
-        if (icon) {
-            icon.classList.add('fa-bars');
-            icon.classList.remove('fa-times');
-        }
+        closeSidebar();
 
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
+            const navbarHeight = 100;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+
             window.scrollTo({
-                top: target.offsetTop - 80,
+                top: targetPosition,
                 behavior: 'smooth'
             });
         }
